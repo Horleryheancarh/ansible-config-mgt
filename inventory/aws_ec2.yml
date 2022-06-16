@@ -16,9 +16,9 @@ filters:
     - yheancarh-nginx
     - yheancarh-tooling
     - yheancarh-wordpress
-    - yheancarh-sonarqube
-    - yheancarh-artifactory
-    - yheancarh-jenkins
+    - Yheancarh-sonarqube
+    - Yheancarh-artifactory
+    - Yheancarh-Jenkins
   instance-state-name : running
   
 hostnames:
@@ -30,3 +30,7 @@ hostnames:
 
 compose:
   ansible_host: private_ip_address
+
+
+
+ 

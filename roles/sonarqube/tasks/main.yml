@@ -10,7 +10,7 @@
 
  
 - name: Add max limits
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/security/limits.conf
     line: 
       - sonarqube   -   nofile   65536
@@ -19,12 +19,12 @@
 
 
 - name: Add ppa  repository 
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: ppa:linuxuprising/java
 
 
 - name: install python3
-  apt:
+  ansible.builtin.apt:
     name: 
       - python3
       - python3-pip
@@ -49,7 +49,7 @@
     executable: pip3
 
 - name: install java 11
-  apt:
+  ansible.builtin.apt:
     name: 
       - openjdk-11-jdk
       - openjdk-11-jre
@@ -60,14 +60,14 @@
 - import_tasks: postgresql.yml
 
 - name: Ensure group sonar exists
-  group:
+  ansible.builtin.group:
     name: sonar
     state: present
 
 - import_tasks: sonarqube-setup.yml
 
 - name: start and enable sonarqube
-  service:
+  ansible.builtin.service:
     name: sonar
     state: started
     enabled: yes
